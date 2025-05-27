@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VeritasJus - Inteligência Patrimonial para Advogados. Revolucione sua prática jurídica com análises patrimoniais avançadas e insights em tempo real.">
+    <meta name="keywords" content="inteligência patrimonial, advogados, jurídico, análise patrimonial, due diligence, investigação patrimonial">
+    <meta name="author" content="VeritasJus">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://veritasjus.com/">
+    <meta property="og:title" content="VeritasJus - Inteligência Patrimonial para Advogados">
+    <meta property="og:description" content="Revolucione sua prática jurídica com análises patrimoniais avançadas e insights em tempo real.">
+    <meta property="og:image" content="https://veritasjus.com/og-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://veritasjus.com/">
+    <meta property="twitter:title" content="VeritasJus - Inteligência Patrimonial para Advogados">
+    <meta property="twitter:description" content="Revolucione sua prática jurídica com análises patrimoniais avançadas e insights em tempo real.">
+    <meta property="twitter:image" content="https://veritasjus.com/twitter-image.jpg">
+    <title>VeritasJus - Inteligência Patrimonial para Advogados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #B8941F;
+            --dark-blue: #1a237e;
+            --navy: #0d1421;
+            --light-gray: #f8fafc;
+            --text-gray: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background: var(--navy);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 20, 33, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "⚖️";
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            color: var(--navy);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding-top: 6rem;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary-gold);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background: var(--primary-gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-preview {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+            transition: all 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .dashboard-preview:hover {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(2deg);
+        }
+
+        .dashboard-content {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 300px;
+            position: relative;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .dashboard-title {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .status-indicator {
+            background: #10b981;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .chart-placeholder {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .data-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .data-value {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--white);
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--secondary-gold));
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            left: 0;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy), var(--dark-blue));
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            padding: 3rem 0 1rem;
+            color: var(--white);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-gray);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .dashboard-preview {
+                transform: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-visual {
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">VeritasJus</a>
+            <ul class="nav-links">
+                <li><a href="#features">Recursos</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#pricing">Preços</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="#" class="cta-button">Começar Agora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>
+                            <span class="highlight">Inteligência Patrimonial</span><br>
+                            para Advogados do Futuro
+                        </h1>
+                        <p>
+                            Revolucione sua prática jurídica com análises patrimoniais avançadas, 
+                            due diligence automatizada e insights em tempo real que transformam 
+                            dados em decisões estratégicas.
+                        </p>
+                        <div class="hero-actions">
+                            <button class="primary-btn" onclick="scrollToDemo()">
+                                Testar Gratuitamente
+                            </button>
+                            <a href="#demo" class="secondary-btn">Ver Demonstração</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="dashboard-preview">
+                            <div class="dashboard-content">
+                                <div class="dashboard-header">
+                                    <div class="dashboard-title">Análise Patrimonial</div>
+                                    <div class="status-indicator">Atualizado</div>
+                                </div>
+                                <div class="chart-placeholder"></div>
+                                <div class="data-row">
+                                    <span class="data-label">Patrimônio Total</span>
+                                    <span class="data-value">R$ 12.5M</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-label">Imóveis</span>
+                                    <span class="data-value">R$ 8.2M</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-label">Investimentos</span>
+                                    <span class="data-value">R$ 4.3M</span>
+                                </div>
+                                <div class="data-row">
+                                    <span class="data-label">Risk Score</span>
+                                    <span class="data-value" style="color: #10b981;">Baixo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Recursos Poderosos</h2>
+                    <p class="section-subtitle">
+                        Tudo que você precisa para conduzir investigações patrimoniais 
+                        completas e precisas
+                    </p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">Investigação Automatizada</h3>
+                        <p class="feature-description">
+                            Análise automática de registros públicos, cartórios e bases 
+                            governamentais para mapear patrimônios de forma completa e precisa.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="feature-title">Dashboard Inteligente</h3>
+                        <p class="feature-description">
+                            Visualize dados patrimoniais em tempo real com gráficos interativos, 
+                            relatórios customizáveis e alertas automáticos.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Due Diligence Avançada</h3>
+                        <p class="feature-description">
+                            Análise de riscos, compliance e verificação de antecedentes 
+                            com validação cruzada de múltiplas fontes confiáveis.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3 class="feature-title">Análise Preditiva</h3>
+                        <p class="feature-description">
+                            IA avançada para prever movimentações patrimoniais, 
+                            identificar padrões suspeitos e antecipar riscos.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="feature-title">Acesso Mobile</h3>
+                        <p class="feature-description">
+                            Aplicativo nativo para iOS e Android com sincronização 
+                            em tempo real e notificações push personalizáveis.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3 class="feature-title">Segurança Máxima</h3>
+                        <p class="feature-description">
+                            Criptografia end-to-end, autenticação multifator e 
+                            conformidade com LGPD e padrões internacionais de segurança.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Pronto para Revolucionar sua Prática?</h2>
+                    <p class="cta-subtitle">
+                        Junte-se a mais de 1.000 advogados que já transformaram 
+                        sua abordagem em investigações patrimoniais
+                    </p>
+                    <button class="primary-btn" onclick="startTrial()">
+                        Começar Teste Gratuito de 30 Dias
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>VeritasJus</h3>
+                    <p>
+                        Inteligência patrimonial avançada para profissionais do direito. 
+                        Transformando dados em decisões estratégicas.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <p><a href="#">Investigação Patrimonial</a></p>
+                    <p><a href="#">Due Diligence</a></p>
+                    <p><a href="#">Análise de Riscos</a></p>
+                    <p><a href="#">Relatórios Customizados</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suporte</h3>
+                    <p><a href="#">Central de Ajuda</a></p>
+                    <p><a href="#">Documentação</a></p>
+                    <p><a href="#">Treinamentos</a></p>
+                    <p><a href="#">Contato</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>📧 contato@veritasjus.com</p>
+                    <p>📞 (11) 9999-9999</p>
+                    <p>📍 São Paulo, SP</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VeritasJus. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll suave para seções
+        function scrollToDemo() {
+            document.getElementById('features').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function startTrial() {
+            alert('Redirecionando para cadastro do teste gratuito...');
+            // Aqui você pode redirecionar para a página de cadastro
+        }
+
+        // Efeito de scroll no header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(13, 20, 33, 0.98)';
+            } else {
+                header.style.background = 'rgba(13, 20, 33, 0.95)';
+            }
+        });
+
+        // Animação dos cards ao entrar na viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
